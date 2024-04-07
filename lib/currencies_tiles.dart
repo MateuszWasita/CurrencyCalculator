@@ -1,12 +1,14 @@
+import 'package:currency_calculator/pages.dart/home_page.dart';
 import 'package:flutter/material.dart';
 
 class Currency_tile {
   
   late String currency;
+  late double exchangeRate;
 
-  Currency_tile(String currency) {
-    
+  Currency_tile(String currency, double exchangeRate) {
     this.currency = currency;
+    this.exchangeRate=exchangeRate;
   }
 
   Column addTile() {
@@ -14,6 +16,7 @@ class Currency_tile {
       children: [
         GestureDetector(
           onTap: () {
+            Globals.exchangeRate=exchangeRate;
             debugPrint('Kliknieto!');
           },
           child: Container(
@@ -34,13 +37,13 @@ class Currency_tile {
           padding: const EdgeInsets.only(right: 65.0, left: 65),
           child: Row(
             children: [
-              Currency_tile("Pln").addTile(),
+              Currency_tile("PLN",3.4).addTile(),
               Spacer(),
-              Currency_tile("Pln").addTile(),
+              Currency_tile("USD",5.0).addTile(),
               Spacer(),
-              Currency_tile("Pln").addTile(),
+              Currency_tile("EUR",4.0).addTile(),
               Spacer(),
-              Currency_tile("Pln").addTile()
+              Currency_tile("PLN",3.4).addTile()
             ],
           ),
         ),
@@ -48,13 +51,13 @@ class Currency_tile {
           padding: const EdgeInsets.only(right: 65.0, left: 65),
           child: Row(
             children: [
-              Currency_tile("Pln").addTile(),
+              Currency_tile("PLN",3.4).addTile(),
               Spacer(),
-              Currency_tile("Pln").addTile(),
+              Currency_tile("USD",5.0).addTile(),
               Spacer(),
-              Currency_tile("Pln").addTile(),
+              Currency_tile("EUR",4.0).addTile(),
               Spacer(),
-              Currency_tile("Pln").addTile()
+              Currency_tile("PLN",3.4).addTile()
             ],
           ),
         )

@@ -12,6 +12,7 @@ class HomePage extends StatefulWidget {
 class Globals {
   static double initialValue = 0;
   static double calculatedValue = 0;
+  static double exchangeRate =3.4;
 }
 
 class _HomePageState extends State<HomePage> {
@@ -29,6 +30,11 @@ class _HomePageState extends State<HomePage> {
             Container(
               width: 300,
               child: TextField(
+                onChanged: (value) {
+                  setState(() {
+                    Globals.initialValue=double.parse(value);                     
+                  });
+                },
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   hintText: "Enter your value",
@@ -39,6 +45,11 @@ class _HomePageState extends State<HomePage> {
               height: 50,
             ),
             Currency_tile.makeTilesGrid(),
+            ElevatedButton(onPressed: (){
+                setState(() {
+                  Globals.calculatedValue=Globals.initialValue*Globals.exchangeRate;
+                });
+            }, child: Text("Calculate")),
             Text('${Globals.calculatedValue}')
           ],
         ),
