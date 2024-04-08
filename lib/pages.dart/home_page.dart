@@ -13,6 +13,10 @@ class Globals {
   static double initialValue = 0;
   static double calculatedValue = 0;
   static double exchangeRate =3.4;
+
+  static bool isFirstCurrSelected=false;
+  static bool isSecondCurrSelected=false;
+
 }
 
 class _HomePageState extends State<HomePage> {
@@ -27,6 +31,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.only(top: 100.0),
               child: Text("Choose your currency to calculate:"),
             ),
+            Text(Globals.isFirstCurrSelected? "SELECT FIRST CURR" : "SELECT CURR TO EXCHANGE"),
             Container(
               width: 300,
               child: TextField(
